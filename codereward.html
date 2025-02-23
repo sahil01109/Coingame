@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining App UI</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #0e0e0e;
+        color: white;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .token-display{
+        text-align: center;
+    }
+    .code{
+    text-align: center;
+    background: #222;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: 0.3s;
+    }
+    .img img{
+        width: 229px;
+        margin-top: 34px;
+    }
+ form input{
+    background: #222;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: 0.3s;
+ }
+ .reward-btn{
+    background: #222;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: 0.3s;
+ }
+    .token-display h1 {
+        padding-top: 25px;
+        font-size: 2.2rem;
+        margin: 10px 0;
+    }
+
+    .max {
+        color: gold;
+    }
+   
+    .code span{
+         font-size: 1rem;
+         font-weight: 500;
+    }
+    /* Bottom Navigation */
+    .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        background: #1c1c1c;
+        padding: 15px 0;
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+    }
+
+    .nav-item {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+
+    .nav-item .active {
+        color: gold;
+    }
+
+    .nav-item:hover {
+        color: gold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+
+        .actions {
+            gap: 10px;
+        }
+
+        .btn {
+            width: 100%;
+
+        }
+    }
+</style>
+
+<body>
+
+
+
+    <section>
+        <div class="token-display">
+            <h1>163 100 <span class="max">OG</span></h1>
+        </div>
+        <div class="code">
+            <span class="code_header">Enter Code Here</span> <br>
+            <form action="#" method="post">
+           <br>
+                    <input type="text" id="inp" placeholder="code...">
+                   <br>
+                   <br>
+                   <br>
+                    <button class="reward-btn" type="submit">Submit</button>
+            </form>
+
+        </div>
+        <div class="img">
+            <img  src="assests/img/logo.webp" alt="">
+            
+        </div>
+    </section>
+
+    <nav class="bottom-nav">
+    <a  class="nav-item active" href="home.html">🏦 Earn</a>
+        <a class="nav-item" href="Leaderboard.html">🏆 Leaderboard</a>
+        <a class="nav-item" href="#">⛏️ Mine</a>
+        <a class="nav-item" href="activities.html">📋 Activities</a>
+       <a class="nav-item" href="Airdrop.html">🎁 Airdrop</a>
+    </nav>
+
+</body>
+<script src="assests/js/tap.js"></script>
+
+</html>
