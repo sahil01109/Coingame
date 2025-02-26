@@ -736,7 +736,6 @@ form input {
 
     .actions {
         display: flex;
-        flex-direction: column;
         align-items: center;
     }
 
@@ -769,11 +768,8 @@ form input {
 
     .tap-coin .claim {
         display: flex;
-        flex-direction: column;
         align-items: center;
     }
 
-    .tap-coin .btn-point {
-        width: 100%;
-    }
+  
 }
