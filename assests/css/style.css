@@ -1,0 +1,779 @@
+/* index.html */
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0e0e0e;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 0px;
+    margin-top: 6px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: -15px;
+    margin-top: 10px;
+}
+
+.user-info h2 {
+    font-size: 0.8rem;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.role {
+    color: gold;
+}
+
+.gold-status {
+    margin-left: 6px;
+    margin-bottom: 0;
+    margin-top: 12px;
+    font-size: 0.7em;
+    color: lightgray;
+}
+
+/* Mining Section */
+.mining-section {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #1c1c1c, #232323);
+    border: 1px solid gold;
+    border-radius: 6vh;
+    box-shadow: 8px 9px 42px rgb(255, 215, 0);
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.stat-box {
+    background: #222;
+    padding: 4px;
+    border-radius: 40px;
+    width: 35%;
+    text-align: center;
+    display: flex;
+    margin-top: 43px;
+    flex-direction: column;
+}
+
+.stat-box p {
+    font-size: 0.8rem;
+    margin-bottom: 2.8px;
+    margin-top: 4.8px;
+}
+
+.stat-box span {
+    font-size: 0.6rem;
+    color: #ccd9e3;
+}
+
+.token-display h1 {
+    font-size: 2.2rem;
+    margin: 10px 0;
+}
+
+.max {
+    color: gold;
+}
+
+.mine-instruction {
+    font-size: 1rem;
+    color: gray;
+}
+
+.coin img {
+    width: 120px;
+    margin-top: 10px;
+}
+
+/* Buttons */
+.actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.btn {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #222;
+    padding: 22px 42px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
+}
+
+.actions button a {
+    font-size: 1rem;
+    color: wheat;
+    text-decoration: none;
+}
+
+.scroll {
+    margin: 20px auto;
+    width: 90%;
+    padding-right: 10px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: #1c1c1c;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.nav-item .active {
+    color: gold;
+}
+
+.nav-item:hover {
+    color: gold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .actions {
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 9px 11px;
+    }
+}
+
+.border-attractive:hover {
+    transform: scale(1.05);
+}
+
+.border-attractive:active {
+    transform: scale(0.95);
+}
+
+.tapCount h4 {
+    position: absolute;
+    font-size: 30px;
+    z-index: 999999;
+    top: 50%;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    transition: left 0.5s, top 0.5s, opacity 0.5s;
+}
+
+.tap-coin {
+    width: 100%;
+}
+
+.claim {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-point {
+    background: #222;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.points {
+    background: #222;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 50%;
+}
+
+.progress-container {
+    margin-left: 5%;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 8px;
+    width: 85px;
+}
+
+.progress {
+    height: 10px;
+    background-color: #ab88dd;
+    width: 0;
+    transition: width 0.3s;
+}
+
+/* leaderboard */
+/* Leaderboard Header */
+.leaderboard-header h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #FFD700;
+    text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.8);
+}
+
+/* Top 3 Players */
+.top-players {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.player-card {
+    width: 30%;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
+.player-card h3 {
+    font-size: 1rem;
+}
+
+.first {
+    background: linear-gradient(135deg, #A64912, #E6B94BD6);
+}
+
+.second {
+    background: linear-gradient(135deg, #9370DB, #4B0082);
+}
+
+.third {
+    background: linear-gradient(135deg, #B73D18, #5E381E);
+}
+
+.crown {
+    font-size: 2rem;
+}
+
+/* User Rank */
+.user-rank {
+    width: 100%;
+}
+
+.rank-box {
+    display: flex;
+    justify-content: space-between;
+    background: #1c1c1c;
+    padding: 12px;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+}
+
+.rank-number {
+    background: #2ECC71;
+    padding: 31px;
+    border-radius: 30%;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Leaderboard List */
+.leaderboard-list {
+    width: 90%;
+    margin: auto;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.gold {
+    background: gold;
+}
+
+.silver {
+    background: purple;
+}
+
+.blue {
+    background: blue;
+}
+
+.red {
+    background: red;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .player-card {
+        width: 20%;
+        font-size: 0.7rem;
+    }
+
+    .player-card h3 {
+        font-size: 0.7rem;
+    }
+
+    .nav-item {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 466px) {
+    .actions {
+        gap: 10px;
+    }
+
+    .btn {
+        width: 90%;
+    }
+
+    .nav-item {
+        font-size: 1rem;
+    }
+}
+
+/* .codereward */
+.token-display {
+    text-align: center;
+}
+
+.code {
+    text-align: center;
+    background: #222;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.img img {
+    width: 229px;
+    margin-top: 34px;
+}
+
+form input {
+    background: #222;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reward-btn {
+    background: #222;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.token-display h1 {
+    padding-top: 25px;
+    font-size: 2.2rem;
+    margin: 10px 0;
+}
+
+.code span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* daily */
+.daily-reward {
+    padding: 15px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.refer .refer-code {
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+.refer .task-header {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.refer-detail {
+    display: flex;
+    justify-content: space-around;
+}
+
+.task-container {
+    margin: 10px auto;
+    max-width: 600px;
+}
+
+.task {
+    margin: 10px auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    background-color: #333030;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    width: 80%;
+}
+
+.task:hover {
+    transform: translateY(-5px);
+}
+
+.task-detail {
+    display: flex;
+    align-items: center;
+}
+
+.task-image img {
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.task h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #f2f2f2;
+}
+
+.task-data {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.task-data img {
+    margin-right: 5px;
+}
+
+.task-data h5 {
+    margin: 0;
+    color: #ffcc00;
+    font-size: 18px;
+}
+
+.task-button {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.task-button:hover {
+    background-color: #a2aaa0;
+}
+
+.tasks.scrollable {
+    min-height: 590px;
+    overflow-y: auto;
+    margin: 20px auto;
+    width: 90%;
+    padding-right: 10px;
+}
+
+@media (max-width: 600px) {
+    .task-container {
+        max-width: 100%;
+    }
+
+    .task-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .task h4 {
+        font-size: 16px;
+    }
+}
+
+/* activity */
+.tab {
+    margin: 10px;
+    overflow: hidden;
+    padding: 10px 15px;
+    justify-content: center;
+    display: flex;
+}
+
+/* Style the buttons inside the tab */
+.tab-btn {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: #ccc;
+}
+
+/* Change background color of buttons on hover */
+.tab-btn:hover {
+    background-color: #333;
+    border-radius: 12px;
+}
+
+/* Create an active/current tablink class */
+.tab-btn.active {
+    background-color: #333030;
+    border-radius: 12px;
+}
+
+.invite-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.invite-btn,
+.copy-btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.share-menu {
+    display: none;
+    width: 100%;
+    background: #1c1c1c;
+    padding: 15px 0;
+    bottom: 0;
+    text-align: center;
+    height: 20vh;
+    border: 1px solid gold;
+    border-radius: 20%;
+    align-content: center;
+    position: fixed;
+    z-index: 1;
+    height: 40vh;
+    margin-bottom: -75px;
+}
+
+.share-menu a {
+    text-decoration: none;
+    color: #f2f2f2;
+}
+
+.share-menu a i {
+    padding: 25px;
+    font-size: 2.6rem;
+    border-radius: 20%;
+    background-color: #333;
+    margin: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 322px) {
+    .tab-btn {
+        font-size: 14px;
+    }
+
+    .refer-detail {
+        font-size: 14px;
+    }
+
+    .task h4 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .task-container {
+        max-width: 100%;
+    }
+
+    .task-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .task h4 {
+        font-size: 14px;
+    }
+}
+
+/* mine */
+#canvas-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+#start-button,
+#claim-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid gold;
+    border-radius: 10%;
+}
+
+#claim-button {
+    display: none;
+}
+
+#timer,
+#points {
+    position: absolute;
+    top: 420px; /* Position below the canvas */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: rgb(255, 254, 254);
+}
+
+#points {
+    top: 450px; /* Position below the timer */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #timer {
+        top: 410px; /* Position below the timer */
+    }
+
+    #points {
+        top: 430px; /* Position below the timer */
+    }
+}
+
+/* Additional Responsive Design for iPhone 5/SE */
+@media (max-width: 320px) {
+    .mining-section {
+        padding: 10px;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .actions .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .token-display {
+        text-align: center;
+    }
+
+    .token-display h1 {
+        font-size: 1.5rem;
+    }
+
+    .token-display .coin {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .token-display h3 {
+        font-size: 1rem;
+    }
+
+    .tap-coin {
+        margin-top: 10px;
+    }
+
+    .tap-coin .claim {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tap-coin .btn-point {
+        width: 100%;
+    }
+}

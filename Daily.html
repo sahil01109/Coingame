@@ -5,337 +5,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mining App UI</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assests/css/style.css">
     <script defer src="script.js"></script>
 </head>
-<style>
-    /* General Styles */
-    body {
-        font-family: 'Poppins', sans-serif;
-        background: #0e0e0e;
-        color: white;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 
-    /* Profile Section */
-    .profile {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 90%;
-        padding: 15px;
-        background: #1c1c1c;
-        border-radius: 10px;
-        margin-top: 10px;
-    }
-
-    .user-info {
-        display: flex;
-        align-items: center;
-    }
-
-    .user-info h2 {
-        font-size: 0.8rem;
-    }
-
-    .avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin-right: 10px;
-    }
-
-    .gold-status {
-        font-size: 0.9em;
-        color: lightgray;
-    }
-
-
-
-
-    .stat-box {
-        background: #222;
-        padding: 4px;
-        border-radius: 10px;
-        width: 35%;
-        text-align: center;
-    }
-
-    .stat-box p {
-        font-size: 0.8rem;
-    }
-
-
-    /* Bottom Navigation */
-    .bottom-nav {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        background: #1c1c1c;
-        padding: 15px 0;
-        position: fixed;
-        bottom: 0;
-        text-align: center;
-    }
-
-    .nav-item {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: 0.3s;
-        text-decoration: none;
-    }
-
-    .nav-item .active {
-        color: gold;
-    }
-
-    .nav-item:hover {
-        color: gold;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-
-        .actions {
-            gap: 10px;
-        }
-
-        .btn {
-            width: 100%;
-
-        }
-    }
-
-    .daily-reward {
-     
-       
-        padding: 15px;
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .max {
-        color: gold;
-    }
-
-    .mine-instruction {
-        font-size: 1rem;
-        color: gray;
-    }
-
-    .token-display {
-        text-align: center;
-
-    }
-
-    .token-display h1 {
-        font-size: 2.2rem;
-        margin: 10px 0;
-
-    }.btn {
-    background: #222;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: 1rem;
-    color: white;
-    border: 1px solid gold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.task-container {
-            margin: 10px auto;
-            max-width: 600px;
-        }
-
-        .task {
-            margin: 10px auto;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid #000000; 
-            border-radius: 12px;
-            background-color: #333030; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            width: 80%;
-        }
-
-        .task:hover {
-            transform: translateY(-5px);
-        }
-
-        .task-detail {
-            display: flex;
-            align-items: center;
-        }
-
-        .task-image img {
-            border-radius: 8px;
-            margin-right: 10px;
-        }
-
-        .task h4 {
-            margin: 0;
-            font-size: 18px;
-            color: #f2f2f2;
-        }
-
-        .task-data {
-            display: flex;
-            align-items: center;
-            margin-top: 8px;
-        }
-
-        .task-data img {
-            margin-right: 5px;
-        }
-
-        .task-data h5 {
-            margin: 0;
-            color: #ffcc00;
-            font-size: 18px;
-        }
-
-        .task-button {
-            background-color: #ffffff; 
-            color: rgb(0, 0, 0);
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-        }
-
-        .task-button:hover {
-            background-color: #a2aaa0;
-        }
-        .tasks.scrollable {
-            max-height: 590px; 
-            overflow-y: auto; 
-            margin: 20px auto;
-            width: 90%;       
-            padding-right: 10px;
-            border: 1px solid #000000; 
-        }
-        @media (max-width: 600px) {
-            .task-container {
-                max-width: 100%;
-            }
-
-            .task-button {
-                padding: 10px 15px;
-                font-size: 14px;
-            }
-
-            .task h4 {
-                font-size: 16px;
-            }
-        }
-</style>
 
 <body>
 
     <header class="profile">
-        <div class="user-info">
-            <img src="assests/img/logo.webp" alt="User Avatar" class="avatar">
-            <div>
+        <div style="display: flex; flex-direction: column;">
+            <div class="user-info">
+                <img src="assests/img/logo.webp" alt="User Avatar" class="avatar">
                 <h2>Sahil Kumar </h2>
+            </div>
+            <div>
                 <p class="gold-status">Level: <span id="level">1</span></p>
                 <div class="progress-container">
                     <div class="progress" id="progress"></div>
                 </div>
-
             </div>
         </div>
         <div class="stat-box">
-            <p>PPH: </p>
+
+            <span>PPH</span>
+
             <p>400</p>
         </div>
     </header>
     <!-- body start  -->
-    <div class="daily-reward">
-        <div class="token-display">
-            <p class="mine-instruction">claim Daily Reward</p>
-            <h1> 100 <span class="max">OG</span></h1>
-            <button type="button" class="btn">claim</button>
+    <div class="mining-section">
+        <div class="daily-reward">
+            <div class="token-display">
+                <p class="mine-instruction">claim Daily Reward</p>
+                <h1> 100 <span class="max">OG</span></h1>
+                <button type="button" class="btn-point">claim</button>
+            </div>
         </div>
-    </div>
-    <section class="tasks scrollable">
-    
-              
-                <div class="task-container">
-                    <div class="task">
-                        <div class="task-detail">
-                            <div class="task-image">
-                                <img src="assests/img/fa.png" width="45px" alt="">
-                            </div>
-                            <div>
-                                <h4>watch post</h4>
-                                <div class="task-data">
-                                    <img src="assests/img/logo.webp" width="20px" alt="Coin Icon">
-                                    <h5>100</h5>
-                                </div>
+        <section class="tasks">
+           
+            <div class="task-container">
+                <div class="task">
+                    <div class="task-detail">
+                        <div class="task-image">
+                            <img src="assests/img/you.gif" width="45px" alt="">
+                        </div>
+                        <div>
+                            <h4>Subscribe</h4>
+                            <div class="task-data">
+                                <img src="assests/img/logo.webp" width="20px" alt="Coin Icon">
+                                <h5>100</h5>
                             </div>
                         </div>
-                        <a class="task-button" href="https://youtu.be/ntIxCfgl9KE?si=Aaf5BsuYt1nN0B1u">watch</a>
-
-                     
                     </div>
-                    <div class="task-container">
-                        <div class="task">
-                            <div class="task-detail">
-                                <div class="task-image">
-                                    <img src="assests/img/ista.png" width="45px" alt="">
-                                </div>
-                                <div>
-                                    <h4>watch post</h4>
-                                    <div class="task-data">
-                                        <img src="assests/img/logo.webp" width="20px" alt="Coin Icon">
-                                        <h5>100</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="task-button" href="https://youtu.be/ntIxCfgl9KE?si=Aaf5BsuYt1nN0B1u">watch</a>
-
-                           
+                    <button class="task-button"
+                        onclick="completeTask(100, 'https://youtube.com/@html-hero?si=5-fOU4FeAD5mSvK-')">
+                        claim</button>
+                </div>
+            </div>
+            <div class="task-container">
+                <div class="task">
+                    <div class="task-detail">
+                        <div class="task-image">
+                            <img src="assests/img/tele.png" width="45px" alt="">
                         </div>
-                        <div class="task-container">
-                            <div class="task">
-                                <div class="task-detail">
-                                    <div class="task-image">
-                                        <img src="assests/img/you.gif" width="45px" alt="">
-                                    </div>
-                                    <div>
-                                        <h4>watch video</h4>
-                                        <div class="task-data">
-                                            <img src="assests/img/logo.webp" width="20px" alt="Coin Icon">
-                                            <h5>100</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="task-button" href="https://youtu.be/ntIxCfgl9KE?si=Aaf5BsuYt1nN0B1u">watch</a>
-                                
+                        <div>
+                            <h4>Subscribe</h4>
+                            <div class="task-data">
+                                <img src="assests/img/logo.webp" width="20px" alt="Coin Icon">
+                                <h5>100</h5>
                             </div>
                         </div>
-                        
-    
-                        </section>
+                    </div>
+                    <button class="task-button"
+                        onclick="completeTask(100, 'https://youtu.be/JqVhry6_O8A?si=cmsyr9Ty1R5VPk9U')">
+                        claim</button>
+                </div>
+            </div>
+            <div class="task-container">
+                <div class="task">
+                    <div class="task-detail">
+                        <div class="task-image">
+                            <img src="assests/img/fa.png" width="45px" alt="">
+                        </div>
+                        <div>
+                            <h4>follow</h4>
+                            <div class="task-data">
+                                <img src="assests/img/logo.webp" width="20px" alt="Coin Icon">
+                                <h5>100</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="task-button"
+                        onclick="completeTask(100, 'https://youtu.be/yDLwl-48N3A?si=8loBzpjvnnI4K8HW')">
+                        claim</button>
+                </div>
+            </div>
+            <div class="task-container">
+                <div class="task">
+                    <div class="task-detail">
+                        <div class="task-image">
+                            <img src="assests/img/ista.png" width="45px" alt="">
+                        </div>
+                        <div>
+                            <h4>follow</h4>
+                            <div class="task-data">
+                                <img src="assests/img/logo.webp" width="20px" alt="Coin Icon">
+                                <h5>100</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="task-button"
+                        onclick="completeTask(100, 'https://youtu.be/aScX2QccdD0?si=hnB-DpVremlzsAXY')">
+                        claim</button>
+                </div>
+            </div>
+            <p style="padding-bottom: 50%;"> </p>    
+    </div>
 
-
+    </section>
     <nav class="bottom-nav">
-        <a class="nav-item active" href="home.html">🏦 Earn</a>
+        <a class="nav-item active" href="index.html">🏦 Earn</a>
         <a class="nav-item" href="Leaderboard.html">🏆 Leaderboard</a>
-        <a class="nav-item" href="#">⛏️ Mine</a>
+        <a class="nav-item" href="mine.html">⛏️ Mine</a>
         <a class="nav-item" href="activities.html">📋 Activities</a>
         <a class="nav-item" href="Airdrop.html">🎁 Airdrop</a>
     </nav>

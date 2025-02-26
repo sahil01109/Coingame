@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Link</title>
+    <style>
+        .share-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .share-menu a {
+            display: block;
+            text-decoration: none;
+            padding: 5px;
+            color: black;
+        }
+        .share-menu a:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="toggleShareMenu()">Share Link</button>
+
+    <div id="shareMenu" class="share-menu">
+        <a href="#" onclick="shareOnWhatsApp()">WhatsApp</a>
+        <a href="#" onclick="shareOnTelegram()">Telegram</a>
+        <a href="#" onclick="shareOnInstagram()">Instagram</a>
+    </div>
+
+    <script>
+        const referralLink = "https://yourwebsite.com/referral?code=YOUR_CODE";
+
+        function toggleShareMenu() {
+            const menu = document.getElementById("shareMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+
+        function shareOnWhatsApp() {
+            window.open(`https://wa.me/?text=Join%20this%20amazing%20platform%20using%20my%20referral%20link!%20${encodeURIComponent(referralLink)}`, "_blank");
+        }
+
+        function shareOnTelegram() {
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=Join%20now!`, "_blank");
+        }
+
+        function shareOnInstagram() {
+            alert("Instagram doesn't support direct link sharing. Please copy the referral link manually.");
+        }
+
+        // Hide menu when clicking outside
+        document.addEventListener("click", (event) => {
+            const menu = document.getElementById("shareMenu");
+            if (menu.style.display === "block" && !event.target.closest("button")) {
+                menu.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>

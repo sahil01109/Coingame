@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining App UI</title>
+    <link rel="stylesheet" href="assests/css/style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+
+    <header class="profile">
+        <div style="display: flex; flex-direction: column;">
+            <div class="user-info">
+                <img src="assests/img/logo.webp" alt="User Avatar" class="avatar">
+                <h2>Sahil Kumar </h2>
+            </div>
+            <div>
+                <p class="gold-status">Level: <span id="level">1</span></p>
+                <div class="progress-container">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+        </div>
+        <div class="stat-box">
+
+            <span>PPH</span>
+
+            <p>400</p>
+        </div>
+    </header>
+
+    <section class="mining-section ">
+        <div id="canvas-container">
+            <button id="start-button" type="button" onclick="startVisualization()">Start</button>
+            <button id="claim-button" type="button" onclick="claimPoints()">Claim</button>
+            <div id="timer"></div>
+            <div id="points"></div>
+          </div>
+       
+    </section>
+
+    <nav class="bottom-nav">
+        <a class="nav-item active" href="index.html">🏦 Earn</a>
+        <a class="nav-item" href="Leaderboard.html">🏆 Leaderboard</a>
+        <a class="nav-item" href="#">⛏️ Mine</a>
+        <a class="nav-item" href="activities.html">📋 Activities</a>
+        <a class="nav-item" href="Airdrop.html">🎁 Airdrop</a>
+    </nav>
+
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"
+  integrity="sha512-M7uzkKVt12bO/ClDOwaTk0AUwDPmJzjxri/KQKft2cisI6q3zJ4KxX3IfSQXF9Z6WU6NNW67JAljgWrA4WiiOA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  let pointCounts = 0;
+  let circleRadius;
+  let times = 0;
+  let animationStarted = false;
+  let duration =10000; // 2 hours in milliseconds
+  let endTime;
+  let points = 0;
+  let pointsPerSecond = 0.001;
+
+  function setup() {
+    let canvas = createCanvas(400, 400);
+    canvas.parent('canvas-container');
+    circleRadius = width / 2 - 30;
+    drawStaticCircle();
+  }
+
+  function draw() {
+    if (!animationStarted) return;
+
+    let currentTime = new Date().getTime();
+    let remainingTime = endTime - currentTime;
+
+    if (remainingTime <= 0) {
+      animationStarted = false;
+      document.getElementById('timer').innerText = "Time's up!";
+      document.getElementById('claim-button').style.display = 'block';
+      return;
+    }
+
+    let hours = Math.floor(remainingTime / (1000 * 60 * 60));
+    let minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+    document.getElementById('timer').innerText = `${hours}h ${minutes}m ${seconds}s`;
+
+    points = (duration - remainingTime) / 1000 * pointsPerSecond;
+    document.getElementById('points').innerText = `Points: ${points.toFixed(3)}`;
+
+    background(0);
+    translate(width / 2, height / 2);
+    strokeWeight(1);
+    stroke(255, 255, 0.5);
+    noFill();
+    circle(0, 0, circleRadius * 2);
+    times += 0.003;
+    pointCounts = constrain(pointCounts + 1, 0, 200);
+
+    for (let i = 0; i < pointCounts; i++) {
+      const angle = map(i % pointCounts, 0, pointCounts, 0, TWO_PI);
+      const aVector = p5.Vector.fromAngle(angle);
+      aVector.mult(circleRadius);
+
+      const bAngle = map((i * times) % pointCounts, 0, pointCounts, 0, TWO_PI);
+      const bVector = p5.Vector.fromAngle(bAngle);
+      bVector.mult(circleRadius);
+
+      line(aVector.x, aVector.y, bVector.x, bVector.y);
+    }
+  }
+
+  function drawStaticCircle() {
+    background(0);
+    translate(width / 2, height / 2);
+    strokeWeight(1);
+    stroke(255, 255, 0.5);
+    noFill();
+    circle(0, 0, circleRadius * 2);
+  }
+
+  function startVisualization() {
+    animationStarted = true;
+    endTime = new Date().getTime() + duration;
+    document.getElementById('start-button').style.display = 'none';
+  }
+
+  function claimPoints() {
+    alert(`You have claimed ${points.toFixed(3)} points!`);
+    document.getElementById('claim-button').style.display = 'none';
+  }
+</script>
+</html>

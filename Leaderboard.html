@@ -4,160 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard UI</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="assests/css/style.css">
+
 </head>
-<style>/* General Styles */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #111;
-    color: white;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
 
-/* Leaderboard Header */
-.leaderboard-header h1 {
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin: 20px 0;
-    color: #FFD700;
-    text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.8);
-}
-
-/* Top 3 Players */
-.top-players {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 15px 0;
-}
-
-.player-card {
-    width: 30%;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
-}
-.player-card h3{
-    font-size: 1rem;
-}
-
-.first { background: linear-gradient(135deg, #A64912, #E6B94BD6); }
-.second { background: linear-gradient(135deg, #9370DB, #4B0082); }
-.third { background: linear-gradient(135deg, #B73D18, #5E381E); }
-
-.crown {
-    font-size: 2rem;
-}
-
-
-
-/* User Rank */
-.rank-box {
-    display: flex;
-    justify-content: space-between;
-    background: #1c1c1c;
-    padding: 12px;
-    border-radius: 10px;
-    width: 90%;
-    margin: auto;
-}
-
-.rank-number {
-    background: #2ECC71;
-    padding: 31px;
-    border-radius: 30%;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-/* Leaderboard List */
-.leaderboard-list {
-    width: 90%;
-    margin: auto;
-}
-
-.leaderboard-item {
-    display: flex;
-    justify-content: space-between;
-   
-    padding: 12px;
-    border-radius: 10px;
-    margin: 10px 0;
-    font-weight: bold;
-}
-
-.profile-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-}
-
-.gold { background: gold; }
-.silver { background: purple; }
-.blue { background: blue; }
-.red { background: red; }
-
-
-/* Bottom Navigation */
-.bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    background: #1c1c1c;
-    padding: 15px 0;
-    position: fixed;
-    bottom: 0;
-    text-align: center;
-}
-
-.nav-item {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-   
-    text-decoration: none;
-}
-
-.nav-item.active {
-    color: gold;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  
-
-    .player-card {
-        width: 20%;
-        font-size: 0.7rem;
-    }
-    .player-card h3{
-      
-        font-size: 0.7rem;
-    }
-
-}
-@media (max-width: 466px) {
- 
-   .actions {
-       gap: 10px;
-   }
-
-   .btn {
-       width: 100%;
-       
-   }
-}
-</style>
 <body>
 
     <!-- Leaderboard Header -->
@@ -171,17 +21,17 @@ body {
         <div class="player-card first">
             <span class="crown">🥇</span>
             <h3>Hriday</h3>
-            <p class="player-score">🪙 90,707.310 M</p>
+            <p class="player-score"> 90,707.310 M</p>
         </div>
         <div class="player-card second">
             <span class="crown">🥈</span>
             <h3>DreamCatcher</h3>
-            <p class="player-score">🪙 74,905.571 M</p>
+            <p class="player-score"> 74,905.571 M</p>
         </div>
         <div class="player-card third">
             <span class="crown">🥉</span>
             <h3>OlasunkanmiD</h3>
-            <p class="player-score">🪙 56,362.816 M</p>
+            <p class="player-score"> 56,362.816 M</p>
         </div>
     </section>
 
@@ -193,7 +43,7 @@ body {
             <span class="rank-number">66</span>
             <div class="rank-info">
                 <p class="username">6678949269</p>
-                <p class="user-points">🪙 163,100</p>
+                <p class="user-points"> 163,100</p>
             </div>
             <span class="rank-position">#109</span>
         </div>
@@ -204,50 +54,50 @@ body {
         <div class="leaderboard-item">
             <div class="profile-icon gold">4</div>
             <p>Hriday</p>
-            <span class="points">2475882 </span>
+            <span class="point">2475882 </span>
         </div>
         <div class="leaderboard-item">
             <div class="profile-icon silver">5</div>
             <p>DreamCatcher</p>
-            <span class="points">🪙 74,905.571 M </span>
+            <span class="point"> 74,905.571 M </span>
         </div>
         <div class="leaderboard-item">
             <div class="profile-icon blue">6</div>
             <p>OlasunkanmiD</p>
-            <span class="points">🪙 56,362.816 M </span>
+            <span class="point"> 56,362.816 M </span>
         </div>
         <div class="leaderboard-item">
             <div class="profile-icon red">7</div>
             <p>AarisKhan</p>
-            <span class="points">🪙 17,357.308 M </span>
+            <span class="point"> 17,357.308 M </span>
         </div>
         <div class="leaderboard-item">
             <div class="profile-icon red">AA</div>
             <p>AarisKhan</p>
-            <span class="points">🪙 17,357.308 M </span>
+            <span class="point"> 17,357.308 M </span>
         </div>
         <div class="leaderboard-item">
             <div class="profile-icon red">AA</div>
             <p>AarisKhan</p>
-            <span class="points">🪙 17,357.308 M </span>
+            <span class="point"> 17,357.308 M </span>
         </div>
         <div class="leaderboard-item">
             <div class="profile-icon red">AA</div>
             <p>AarisKhan</p>
-            <span class="points">🪙 17,357.308 M </span>
+            <span class="point"> 17,357.308 M </span>
         </div>
         <div class="leaderboard-item">
             <div class="profile-icon red">AA</div>
             <p>AarisKhan</p>
-            <span class="points">🪙 17,357.308 M </span>
+            <span class="point"> 17,357.308 M </span>
         </div>
     </section>
 
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
-        <a  class="nav-item active" href="home.html">🏦 Earn</a>
-        <a class="nav-item" href="#">🏆 Leaderboard</a>
-        <a class="nav-item" href="#">⛏️ Mine</a>
+        <a  class="nav-item active" href="index.html">🏦 Earn</a>
+        <a class="nav-item" href="Leaderboard.html">🏆 Leaderboard</a>
+        <a class="nav-item" href="mine.html">⛏️ Mine</a>
         <a class="nav-item" href="activities.html">📋 Activities</a>
        <a class="nav-item" href="Airdrop.html">🎁 Airdrop</a>
     </nav>
