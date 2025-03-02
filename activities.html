@@ -39,9 +39,9 @@
         <button class="tab-btn" onclick="openCity(event, 'complete-task')">Complete Task</button>
     </div>
     <div id="shareMenu" class="share-menu">
-        <a href="#" onclick="shareOnWhatsApp()"><i class="fa fa-brands fa-whatsapp"></i></a>
-        <a href="#" onclick="shareOnTelegram()"><i class="fa fa-brands fa-telegram"></i></a>
-        <a href="#" onclick="shareOnInstagram()"><i class="fa fa-brands fa-facebook"></i></a>
+        <a href="#" onclick="shareOnWhatsApp()"><i class="fa fa-brands fa-whatsapp"></i>Whatsapp</a>
+        <a href="#" onclick="shareOnTelegram()"><i class="fa fa-brands fa-telegram"></i>telegram</a>
+        <a href="#" onclick="shareOnInstagram()"><i class="fa fa-brands fa-facebook"></i>facebook</a>
     </div>
 
     <div class="refer" id="refer-data">
@@ -353,7 +353,7 @@
 
     function toggleShareMenu() {
         const menu = document.getElementById("shareMenu");
-        menu.style.display = menu.style.display === "block" ? "none" : "block";
+        menu.style.display = menu.style.display === "" ? "none" : "flex";
     }
 
     function shareOnWhatsApp() {
@@ -371,7 +371,7 @@
     // Hide menu when clicking outside
     document.addEventListener("click", (event) => {
         const menu = document.getElementById("shareMenu");
-        if (menu.style.display === "block" && !event.target.closest("button")) {
+        if (menu.style.display === "flex" && !event.target.closest("button")) {
             menu.style.display = "none";
         }
     });

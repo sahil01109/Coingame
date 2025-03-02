@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Cards</title>
+    <link rel="stylesheet" href="assests/css/style.css">
+<style>/* Global Styles */
+
+
+/* Scrollable Container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Dynamic grid */
+    gap: 15px;
+    max-width: 420px; /* Controls layout width */
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto; /* Enables vertical scrolling */
+    scrollbar-width: thin;
+    scrollbar-color: #fdd835 #2c2c2c;
+    
+}
+
+/* Individual Card Styling */
+.card {
+    background-color: #2c2c2c;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Image inside Card */
+.card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Text Styling */
+h3 {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.profit, .level {
+    font-size: 12px;
+    color: #b0b0b0;
+}
+
+.profit span, .level span {
+    color: #fdd835;
+    font-weight: bold;
+}
+
+/* Locked Card Effect */
+.locked {
+    opacity: 0.5;
+    position: relative;
+}
+
+.locked::after {
+    content: "🔒";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+/* Scrollbar Styling */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #fdd835;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: #2c2c2c;
+}
+
+/* Responsive Layout */
+@media (max-width: 500px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on small screens */
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+@media (min-width: 501px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
+    }
+}
+</style>
+</head>
+<body><header class="profile">
+    <div style="display: flex; flex-direction: column;">
+        <div class="user-info">
+            <img src="assests/img/logo.webp" alt="User Avatar" class="avatar">
+            <h2>Sahil Kumar </h2>
+        </div>
+        <div>
+            <p class="gold-status">Level: <span id="level">1</span></p>
+            <div class="progress-container">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+    </div>
+    <div class="stat-box">
+        <span>PPH</span>
+        <p>400</p>
+    </div>
+</header>
+
+<section class="mining-section">
+    <div class="container">
+        <div class="card">
+            <img src="assests/img/tap.png" alt="Technical Analysis">
+            <h3>Technical Analysis</h3>
+            <p class="profit">Profit per hour <span>🪙 +0</span></p>
+            <p class="level">lvl 0 | <span>🪙 550</span></p>
+        </div>
+        <div class="card">
+            <img src="assests/img/tap.png" alt="Technical Analysis">
+            <h3>Technical Analysis</h3>
+            <p class="profit">Profit per hour <span>🪙 +0</span></p>
+            <p class="level">lvl 0 | <span>🪙 550</span></p>
+        </div>
+        <div class="card">
+            <img src="assests/img/tap.png" alt="Technical Analysis">
+            <h3>Technical Analysis</h3>
+            <p class="profit">Profit per hour <span>🪙 +0</span></p>
+            <p class="level">lvl 0 | <span>🪙 550</span></p>
+        </div>
+        <div class="card">
+            <img src="discipline.png" alt="Discipline">
+            <h3>Discipline</h3>
+            <p class="profit">Profit per hour <span>🪙 600</span></p>
+            <p class="level">lvl 3 | <span>🪙 100k</span></p>
+        </div>
+        <div class="card">
+            <img src="adaptability.png" alt="Adaptability">
+            <h3>Adaptability</h3>
+            <p class="profit">Profit per hour <span>🪙 1680</span></p>
+            <p class="level">lvl 3 | <span>🪙 400k</span></p>
+        </div>
+        <div class="card locked">
+            <img src="networking.png" alt="Networking">
+            <h3>Networking</h3>
+            <p class="profit">Profit per hour <span>🪙 +0</span></p>
+            <p class="level">lvl 0 | <span class="requirement">Technical Analysis lvl 2</span></p>
+        </div>
+        <div class="card">
+            <img src="kingdom-fire.png" alt="Kingdom Fire">
+            <h3>Kingdom Fire</h3>
+            <p class="profit">Profit per hour <span>🪙 +0</span></p>
+        </div>
+        <div class="card">
+            <img src="kingdom-fire.png" alt="Kingdom Fire">
+            <h3>Kingdom Fire</h3>
+            <p class="profit">Profit per hour <span>🪙 +0</span></p>
+        </div>
+        <div class="card">
+            <img src="adaptability.png" alt="Adaptability">
+            <h3>Adaptability</h3>
+            <p class="profit">Profit per hour <span>🪙 1680</span></p>
+            <p class="level">lvl 3 | <span>🪙 400k</span></p>
+        </div>
+    </div>
+    <p style="padding-bottom: 50%;"> </p>  
+    <nav class="bottom-nav">
+        <a class="nav-item active" href="#">🏦 Earn</a>
+        <a class="nav-item" href="Leaderboard.html">🏆 Leaderboard</a>
+        <a class="nav-item" href="mine.html">⛏️ Mine</a>
+        <a class="nav-item" href="activities.html">📋 Activities</a>
+        <a class="nav-item" href="Airdrop.html">🎁 Airdrop</a>
+    </nav>
+</section>
+</body>
+</html>

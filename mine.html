@@ -32,7 +32,7 @@
         </div>
     </header>
 
-    <section class="mining-section ">
+    <section style="background: black;" class="mining-section">
         <div id="canvas-container">
             <button id="start-button" type="button" onclick="startVisualization()">Start</button>
             <button id="claim-button" type="button" onclick="claimPoints()">Claim</button>
@@ -40,6 +40,9 @@
             <div id="points"></div>
           </div>
        
+          <div class="upgrademine">
+            <a href="cards.html">upgrade-></a>
+          </div>
     </section>
 
     <nav class="bottom-nav">
@@ -57,33 +60,35 @@
   integrity="sha512-M7uzkKVt12bO/ClDOwaTk0AUwDPmJzjxri/KQKft2cisI6q3zJ4KxX3IfSQXF9Z6WU6NNW67JAljgWrA4WiiOA=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-  let pointCounts = 0;
-  let circleRadius;
-  let times = 0;
-  let animationStarted = false;
-  let duration =10000; // 2 hours in milliseconds
-  let endTime;
-  let points = 0;
-  let pointsPerSecond = 0.001;
 
-  function setup() {
-    let canvas = createCanvas(400, 400);
+let pointCounts = 0;
+let circleRadius;
+let times = 0;
+let animationStarted = false;
+let duration = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
+let endTime;
+let points = 0;
+let profitPerHour = 4000000; // Profit per hour
+let pointsPerSecond = profitPerHour / 3600; // Calculate points per second based on profit per hour
+
+function setup() {
+    let canvas = createCanvas(windowWidth * 0.8, windowWidth * 0.8);
     canvas.parent('canvas-container');
-    circleRadius = width / 2 - 30;
+    circleRadius = min(width, height) / 2 - 30; // Adjust the circle radius based on the smaller dimension
     drawStaticCircle();
-  }
+}
 
-  function draw() {
+function draw() {
     if (!animationStarted) return;
 
     let currentTime = new Date().getTime();
     let remainingTime = endTime - currentTime;
 
     if (remainingTime <= 0) {
-      animationStarted = false;
-      document.getElementById('timer').innerText = "Time's up!";
-      document.getElementById('claim-button').style.display = 'block';
-      return;
+        animationStarted = false;
+        document.getElementById('timer').innerText = "Time's up!";
+        document.getElementById('claim-button').style.display = 'block';
+        return;
     }
 
     let hours = Math.floor(remainingTime / (1000 * 60 * 60));
@@ -104,36 +109,40 @@
     pointCounts = constrain(pointCounts + 1, 0, 200);
 
     for (let i = 0; i < pointCounts; i++) {
-      const angle = map(i % pointCounts, 0, pointCounts, 0, TWO_PI);
-      const aVector = p5.Vector.fromAngle(angle);
-      aVector.mult(circleRadius);
+        const angle = map(i % pointCounts, 0, pointCounts, 0, TWO_PI);
+        const aVector = p5.Vector.fromAngle(angle);
+        aVector.mult(circleRadius);
 
-      const bAngle = map((i * times) % pointCounts, 0, pointCounts, 0, TWO_PI);
-      const bVector = p5.Vector.fromAngle(bAngle);
-      bVector.mult(circleRadius);
+        const bAngle = map((i * times) % pointCounts, 0, pointCounts, 0, TWO_PI);
+        const bVector = p5.Vector.fromAngle(bAngle);
+        bVector.mult(circleRadius);
 
-      line(aVector.x, aVector.y, bVector.x, bVector.y);
+        line(aVector.x, aVector.y, bVector.x, bVector.y);
     }
-  }
+}
 
-  function drawStaticCircle() {
+function drawStaticCircle() {
     background(0);
     translate(width / 2, height / 2);
     strokeWeight(1);
     stroke(255, 255, 0.5);
     noFill();
     circle(0, 0, circleRadius * 2);
-  }
+}
 
-  function startVisualization() {
+function startVisualization() {
     animationStarted = true;
     endTime = new Date().getTime() + duration;
     document.getElementById('start-button').style.display = 'none';
-  }
+    document.getElementById('claim-button').style.display = 'none';
+}
 
-  function claimPoints() {
+function claimPoints() {
     alert(`You have claimed ${points.toFixed(3)} points!`);
     document.getElementById('claim-button').style.display = 'none';
-  }
+    document.getElementById('start-button').style.display = 'block';
+}
+
+
 </script>
 </html>
